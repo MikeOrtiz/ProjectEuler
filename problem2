@@ -1,0 +1,13 @@
+fib = [1,2,3,5,8,13,21,34,55,89]
+
+val = 0
+sum = 44
+while val <= 4000000:
+	val = fib[len(fib)-1] + fib[len(fib)-2]
+	if val > 4000000:
+		break
+	fib.append(val)
+	if val % 2 == 0:
+		sum += val
+
+print sum

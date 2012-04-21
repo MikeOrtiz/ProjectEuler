@@ -1,0 +1,32 @@
+import fileinput
+
+def getProduct(list):
+	product = 1
+	for i in list:
+		product *= int(i)
+	return product
+
+num = ""
+for line in fileinput.input("problem8_input"):
+	line = line.strip()
+	num += line
+
+
+five = []
+for i in range(5):
+	five.append(num[i])
+
+greatestVal = getProduct(five)
+greatestList = five[:]
+
+for i in range(5, 1000):
+	five.pop(0)
+	five.append(num[i])
+	product = getProduct(five)
+	if product > greatestVal:
+		greatestVal = product
+		for i in range(5):
+			greatestList[i] = five[i]
+
+print greatestVal, greatestList	
+

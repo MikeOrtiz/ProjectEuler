@@ -1,0 +1,19 @@
+from math import ceil, pow
+
+num = 600851475143
+
+def checkPrime(val):
+	for i in range(2, int(ceil(pow(val,.5)))):
+		if val % i == 0:
+			return False
+	return True
+
+largestPrime = 0
+top = int(ceil(pow(num, .5)))
+for i in reversed(range(1,top)):
+	if num % i == 0 and checkPrime(i):
+		print "setting largestPrime" + str(i)
+		largestPrime = i
+		break
+
+print largestPrime	

@@ -1,0 +1,48 @@
+import math
+import fileinput
+
+def myMax(a, b):
+	if a > b:
+		return a
+	return b
+
+max = 20
+
+grid = []
+for line in fileinput.input("problem11_input"):
+	line = line.split()
+	grid.append(line)
+
+vals = []
+greatestVal = 0
+
+#horizontal
+for x in range(max-3):
+	for y in range(max):
+		val = int(grid[y][x]) * int(grid[y][x+1]) * int(grid[y][x+2]) * int(grid[y][x+3])
+		greatestVal = myMax(val, greatestVal)
+		vals.append(val)
+
+#vertical
+for x in range(max):
+	for y in range(max-3):
+		val = int(grid[y][x]) * int(grid[y+1][x]) * int(grid[y+2][x]) * int(grid[y+3][x])
+		greatestVal = myMax(val, greatestVal)
+		vals.append(val)
+
+#diagonal: left-right
+for x in range(max-3):
+	for y in range(max-3):
+		val = int(grid[y][x]) * int(grid[y+1][x+1]) * int(grid[y+2][x+2]) * int(grid[y+3][x+3])
+		greatestVal = myMax(val, greatestVal)
+		vals.append(val)
+
+#diagonal: right-left
+for x in range(3,max):
+	for y in range(max-3):
+		val = int(grid[y][x]) * int(grid[y-1][x-1]) * int(grid[y-2][x-2]) * int(grid[y-3][x-3])
+		greatestVal = myMax(val, greatestVal)
+		vals.append(val)
+
+print max(vals)
+print greatestVal	

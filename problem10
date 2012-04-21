@@ -1,0 +1,26 @@
+import math
+
+def isPrime(num):
+	for d in range(2, 1+int(pow(num, .5))):
+		if num % d == 0:
+			return False
+	return True
+
+list = [1, 7, 11, 13, 17, 19, 23, 29]
+
+i = 0
+sum = 9
+willBreak = False
+while True:
+	if willBreak is True:
+		break
+	for j in list:
+		num = 30 * i + j
+		if num >= 2000000:
+			willBreak = True
+			break
+		if isPrime(num):
+			sum += num
+	i = i + 1
+
+print sum

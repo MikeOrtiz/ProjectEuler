@@ -1,0 +1,14 @@
+from math import factorial
+
+a = factorial(100)
+print a
+
+loop = len(str(a))
+
+sum = 0
+for i in range(loop):
+	remainder = a % 10
+	sum += remainder
+	a = a / 10
+
+print sum

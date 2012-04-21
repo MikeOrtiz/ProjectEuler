@@ -1,0 +1,10 @@
+def checkDivisibility(num):
+	for i in range(1,21):
+		if num % i != 0:
+			return False
+	return True
+
+for val in range(200000000, 300000000):
+	if checkDivisibility(val) is True:
+		print val
+		break

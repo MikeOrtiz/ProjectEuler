@@ -1,0 +1,23 @@
+import math
+
+def isPrime(num):
+	for d in range(2, 1+int(pow(num, .5))):
+		if num % d == 0:
+			return False
+	return True
+
+list = [1, 7, 11, 13, 17, 19, 23, 29]
+loop = len(list)
+count = 0
+primes = []
+i = 0
+while count < 10001:
+	for j in list:
+		num = (30 * i) + j
+		if isPrime(num):
+			count = count + 1
+			primes.append(num)
+	i = i + 1
+
+print primes
+print len(primes)

@@ -1,0 +1,18 @@
+def isPalindrome(num):
+	rev = int(''.join(reversed(str(num))))
+	return num == rev
+
+highest = 0
+ai = 0
+ab = 0
+for i in reversed(range(100,1000)):
+	for j in reversed(range(100,1000)):
+		val = i * j
+		if (isPalindrome(val) and val > highest):
+			highest = val
+			ai = i
+			ab = j
+
+print highest
+print ai
+print ab

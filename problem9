@@ -1,0 +1,13 @@
+import math
+
+def isPythagorean(a, b, c):
+	return pow(a,2) + pow(b,2) == pow(c,2)
+
+c = 900
+while c > 300:
+	for a in range(1,1000-c):
+		b = 1000 - c - a
+		if isPythagorean(a, b, c):
+			print a*b*c
+			break
+	c = c - 1	
